@@ -1,0 +1,12 @@
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.View.csprojResolveAssemblyReference.cache
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.Construtor.WindowsFormTabs.resources
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.Construtor.Properties.Resources.resources
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.View.csproj.GenerateResource.Cache
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.View.csproj.CoreCompileInputs.cache
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.Construtor.exe
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\obj\Debug\Rampup.Atv2.Construtor.pdb
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\bin\Debug\Rampup.Atv2.Construtor.exe.config
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\bin\Debug\Rampup.Atv2.Construtor.exe
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\bin\Debug\Rampup.Atv2.Construtor.pdb
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\bin\Debug\Rampup.Atv2.Class.dll
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Construtor\bin\Debug\Rampup.Atv2.Class.pdb

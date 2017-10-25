@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Rampup.Atv2.Class.Models;
 
 namespace Rampup.Atv2.Class
 {
-    public sealed class ListContas
+    public sealed class ListAccounts
     {
-        private static readonly ListContas _instance = new ListContas();
-        public static ListContas Instance { get { return _instance; } }
+        private static readonly ListAccounts _instance = new ListAccounts();
+        public static ListAccounts Instance { get { return _instance; } }
 
         public List<Conta> Lista { get; set; }
 
-        public ListContas()
-        {
+        public ListAccounts(){
             this.Lista = new List<Conta>();
         }
     }

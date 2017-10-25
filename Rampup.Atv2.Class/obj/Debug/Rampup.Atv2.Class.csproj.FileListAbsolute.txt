@@ -16,3 +16,9 @@ F:\Programmers\Aula\Construtor\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.csp
 F:\Programmers\Aula\Construtor\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.csproj.CoreCompileInputs.cache
 F:\Programmers\Aula\Construtor\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.dll
 F:\Programmers\Aula\Construtor\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.pdb
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\bin\Debug\Rampup.Atv2.Class.dll
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\bin\Debug\Rampup.Atv2.Class.pdb
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.csprojResolveAssemblyReference.cache
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.csproj.CoreCompileInputs.cache
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.dll
+C:\ws\Rampup\RampUP.Atividade03.ContaBancoAbasInstance\Rampup.Atv2.Class\obj\Debug\Rampup.Atv2.Class.pdb
