@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rampup.Atv2.Construtor", "Rampup.Atv2.Construtor\Rampup.Atv2.Construtor.csproj", "{AD985860-0068-4F6E-BD6B-50E271312FAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rampup.ATV2.View", "Rampup.Atv2.Construtor\Rampup.ATV2.View.csproj", "{AD985860-0068-4F6E-BD6B-50E271312FAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rampup.Atv2.Class", "Rampup.Atv2.Class\Rampup.Atv2.Class.csproj", "{65EB7FA0-9D62-42C9-96C7-A2292A9DB194}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RampUP.ATV2.Class", "Rampup.Atv2.Class\RampUP.ATV2.Class.csproj", "{65EB7FA0-9D62-42C9-96C7-A2292A9DB194}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
