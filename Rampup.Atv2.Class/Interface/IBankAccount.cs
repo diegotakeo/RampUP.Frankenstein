@@ -13,7 +13,7 @@ namespace Rampup.Atv2.Class.Interface
         List<BankAccountModel> FindAll();
         BankAccountModel FindOne(int ID);
         Boolean Delete(int ID);
-        double CashWithdrawal(int ID, double Amount);
+        double  CashWithdrawal(int ID, double Amount);
         double MoneyDeposit(int ID, double Amount);
 
     }

@@ -13,5 +13,16 @@ namespace Rampup.Atv2.Class.Models
         public double Balance       { get; set; }
         public string Bank          { get; set; }
         public string AccountType   { get; set; }
+
+        public BankAccountModel(int ID, string Owner, double Balance, string Bank, string AccountType)
+        {
+            this.ID = ID;
+            this.Owner = Owner;
+            this.Balance = Balance;
+            this.Bank = Bank;
+            this.AccountType = AccountType;
+        }
+
+        public BankAccountModel() { }
     }
 }

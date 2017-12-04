@@ -37,7 +37,6 @@ namespace Rampup.Atv2.Construtor
             // INTERFACE = SERVICE (gets all implemented methods)
             _clientModel = new ClientService();
             _bankAccountModel = new BankAccountService();
-
         }
 
 
@@ -46,7 +45,8 @@ namespace Rampup.Atv2.Construtor
         public enum TipoConta
         {
             Corrente,
-            Poupança
+            Poupança,
+            Investimento 
         }
 
         public enum TipoPessoa
@@ -65,13 +65,24 @@ namespace Rampup.Atv2.Construtor
         private void btn_Salve_Click(object sender, EventArgs e)
         {
             // GET DATA FROM INPUTS
-            var client          = new ClientModel();
-            client.ID           = Convert.ToInt32(txt_clientID.Text);
-            client.Name         = txt_Name.Text;
-            client.Email        = txtEmail.Text;
-            client.CPF_CNPJ     = txt_CPF.Text;
-            client.Password     = txt_Password.Text;
-            client.ClientType   = cb_TypePerson.SelectedItem.ToString();
+            //var client          = new ClientModel();
+            //client.ID           = Convert.ToInt32(txt_clientID.Text);
+            //client.Name         = txt_Name.Text;
+            //client.Email        = txtEmail.Text;
+            //client.Password     = txt_Password.Text;
+            //client.ClientType   = cb_TypePerson.SelectedItem.ToString();
+            //string CPF_CNPJ = txt_CPF.Text;
+
+            // RAMPUP: PARAMETROS NOMEADOS
+            var client = new ClientModel(
+                ID: Convert.ToInt32(txt_clientID.Text), 
+                Name: txt_Name.Text, 
+                Email: txtEmail.Text, 
+                Password: txt_Password.Text, 
+                ClientType: cb_TypePerson.SelectedItem.ToString(),
+                CPF_CNPJ: txt_CPF.Text
+            );
+
             
             // SIMULATE DATABASE QUERY
             var clientList = ClientList.Instance.Lista;
@@ -81,7 +92,7 @@ namespace Rampup.Atv2.Construtor
             // IF NOT EXISTS, INSERT!
             if (CPF_Exists == null && ID_Exists == null)
                 _clientModel.Create(client);
-
+            
             if (CPF_Exists != null)
                 MessageBox.Show("Esse CPF/CNPJ já foi cadastrado!");
 
@@ -136,6 +147,71 @@ namespace Rampup.Atv2.Construtor
             GC.Collect();
         }
 
+        // ----------------------------------------------------------------------------------- //
+        // ´[ button ] MOVIMENTAÇÃO BANCÁRIA
+        private void btn_Move_Click(object sender, EventArgs e)
+        {
+            int ID = Convert.ToInt32(txt_IDM.Text);
+            double Amount = Convert.ToDouble(txt_ValueM.Text);
+            string movType = cb_Movement.SelectedItem.ToString();
+            double UpdatedAmount = 0;
+
+
+            // SIMULATE DATABASE QUERY
+            var bankAccountList = BankAccountList.Instance.Lista;
+            var ID_exists = bankAccountList.ToList().Where(x => x.ID == ID).FirstOrDefault();
+
+
+            // IF NOT EXISTS, INSERT!
+            if (ID_exists != null)
+            {
+
+                switch (movType)
+                {
+                    case "Saque":
+                        UpdatedAmount = _bankAccountModel.CashWithdrawal(ID, Amount);
+                        break;
+                    case "Deposito":
+                        UpdatedAmount = _bankAccountModel.MoneyDeposit(ID, Amount);
+                        break;
+                    default:
+                        MessageBox.Show("Operação Inválida");
+                        break;
+                }
+                MessageBox.Show("O seu saldo atual é: R$" + UpdatedAmount);
+
+                var lista = BankAccountList.Instance.Lista.ToList();
+                dataGridContas.DataSource = null;
+                dataGridContas.DataSource = lista;
+            }
+            else
+                MessageBox.Show("O numero da conta não existe!");
+
+        }
+
+        // ----------------------------------------------------------------------------------- //
+        // [button] SEARCH BY NAME
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            List<BankAccountList> ownedAccounts = new List<BankAccountList>();
+            int counter = 0;
+            double moneyCounter = 0;
+            var bankAccountList = BankAccountList.Instance.Lista;
+            int listLength = bankAccountList.Count;
+            string ownerName = txtSearchName.Text;
+
+            for (int i = 0; i < listLength; i++)
+            {
+                if (bankAccountList[i].Owner == ownerName)
+                {
+                    counter++;
+                    moneyCounter += bankAccountList[i].Balance;
+                }
+            }
+
+            MessageBox.Show("O cliente " + ownerName + " possui " + counter + " conta(s) e um saldo combinado de R$" + moneyCounter);
+
+        }
 
         // ----------------------------------------------------------------------------------- //
         // [button] CLEAR CLIENT FIELDS
@@ -158,79 +234,22 @@ namespace Rampup.Atv2.Construtor
             cb_TypeAccount.SelectedIndex = -1;
         }
         
-        // ----------------------------------------------------------------------------------- //
-        // ´[ button ] MOVIMENTAÇÃO BANCÁRIA
-        private void btn_Move_Click(object sender, EventArgs e)
-        {
-            int ID               = Convert.ToInt32(txt_IDM.Text);
-            double Amount        = Convert.ToDouble(txt_ValueM.Text);
-            string movType       = cb_Movement.SelectedItem.ToString();
-            double UpdatedAmount = 0;
-
-            switch (movType) {
-                case "Saque":
-                    UpdatedAmount = _bankAccountModel.CashWithdrawal(ID, Amount);
-                    break;
-                case "Deposito":
-                    UpdatedAmount = _bankAccountModel.MoneyDeposit(ID, Amount);
-                    break;
-                default:
-                    MessageBox.Show("Operação Inválida");
-                    break;
-            }
-            MessageBox.Show("O seu saldo atual é: R$" + UpdatedAmount);
-            
-            var lista = BankAccountList.Instance.Lista.ToList();
-            dataGridContas.DataSource = null;
-            dataGridContas.DataSource = lista;
-        }
-
-        private void txt_CPF_TextChanged(object sender, EventArgs e){}
-
-        private void label3_Click(object sender, EventArgs e){}
-
-        private void txt_Password_TextChanged(object sender, EventArgs e){}
-
-        private void label7_Click(object sender, EventArgs e){}
-
-        private void Form1_Load(object sender, EventArgs e){}
-
-        private void label9_Click(object sender, EventArgs e){}
-
-        private void cb_Movement_SelectedIndexChanged(object sender, EventArgs e){}
-
-        private void cb_TypeAccount_SelectedIndexChanged(object sender, EventArgs e){}
-
-        private void label6_Click(object sender, EventArgs e){}
         
+
+        // COMPONENTES NÃO UTILIZADOS
+        private void txt_CPF_TextChanged(object sender, EventArgs e){}
+        private void label3_Click(object sender, EventArgs e){}
+        private void txt_Password_TextChanged(object sender, EventArgs e){}
+        private void label7_Click(object sender, EventArgs e){}
+        private void Form1_Load(object sender, EventArgs e){}
+        private void label9_Click(object sender, EventArgs e){}
+        private void cb_Movement_SelectedIndexChanged(object sender, EventArgs e){}
+        private void cb_TypeAccount_SelectedIndexChanged(object sender, EventArgs e){}
+        private void label6_Click(object sender, EventArgs e){}
         private void dataGridClientes_CellContentClick(object sender, DataGridViewCellEventArgs e){}
-
         private void txt_ID_TextChanged(object sender, EventArgs e){}
-
         private void dataGridContas_CellContentClick(object sender, DataGridViewCellEventArgs e){}
-
         private void cb_TypePerson_SelectedIndexChanged(object sender, EventArgs e){}
-
-        private void btnSearch_Click(object sender, EventArgs e)
-        {
-            List<BankAccountList> ownedAccounts = new List<BankAccountList>();
-            int counter = 0;
-            double moneyCounter = 0;
-            var bankAccountList = BankAccountList.Instance.Lista;
-            int listLength = bankAccountList.Count;
-            string ownerName = txtSearchName.Text;
-
-            for(int i = 0; i < listLength; i++)
-            {
-                if (bankAccountList[i].Owner == ownerName) { 
-                    counter++;
-                    moneyCounter += bankAccountList[i].Balance;
-                }
-            }
-
-            MessageBox.Show("O cliente "+ownerName+" possui "+counter+" conta(s) e um saldo combinado de R$"+moneyCounter);
-            
-        }
     }
  }
 

@@ -14,5 +14,17 @@ namespace Rampup.Atv2.Class.Models
         public string Password { get; set; }
         public string CPF_CNPJ { get; set; }
         public string ClientType { get; set; }
+
+        public ClientModel(int ID, string Name, string Email, string Password, string CPF_CNPJ, string ClientType)
+        {
+            this.ID = ID;
+            this.Name = Name;
+            this.Email = Email;
+            this.Password = Password;
+            this.CPF_CNPJ = CPF_CNPJ;
+            this.ClientType = ClientType;
+        }
+
+        public ClientModel() {}
     }
 }
